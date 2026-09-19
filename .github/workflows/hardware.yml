@@ -18,16 +18,19 @@ jobs:
           persist-credentials: false
       - name: Install official KiCad 10 stable packages
         run: |
-          sudo add-apt-repository --yes ppa:kicad/kicad-10.0-releases
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends kicad python3-cairosvg
           mkdir -p build
+          sudo add-apt-repository --yes ppa:kicad/kicad-10.0-releases >build/install.log 2>&1
+          sudo apt-get update -qq >>build/install.log 2>&1
+          sudo apt-get install -y --no-install-recommends kicad python3-cairosvg poppler-utils >>build/install.log 2>&1
           kicad-cli version | tee build/kicad-version.txt
-      - name: Generate native schematic and PCB
+      - name: Generate editable schematic and PCB, preserve full licence
         run: |
+          set -o pipefail
+          python3 tools/fetch_license.py | tee build/license-check.txt
           python3 tools/migrate_cad_generator.py
           /usr/bin/python3 tools/build_hardware.py
-      - name: Open and export native CAD
+          python3 tools/layout_schematic.py
+      - name: Export native CAD and run actual electrical/design rules
         run: |
           kicad-cli sch export pdf -o build/limit4-schematic.pdf hardware/limit4.kicad_sch
           kicad-cli sch export netlist --format kicadxml -o build/limit4.xml hardware/limit4.kicad_sch
@@ -35,12 +38,14 @@ jobs:
           kicad-cli pcb drc --format json -o build/drc.json hardware/limit4.kicad_pcb
           kicad-cli pcb export svg --layers F.Cu,F.Silkscreen,Edge.Cuts --page-size-mode 2 -o build/pcb-top.svg hardware/limit4.kicad_pcb
           /usr/bin/python3 -c "import cairosvg; cairosvg.svg2png(url='build/pcb-top.svg',write_to='build/pcb-top.png',output_width=1400)"
-      - name: Cross-check schematic, layout and logic
+          pdftoppm -png -scale-to 2000 -singlefile build/limit4-schematic.pdf build/schematic
+      - name: Exact schematic-layout-manifest comparison and host logic assertions
         run: |
           set -o pipefail
           /usr/bin/python3 tools/check_connectivity.py | tee build/connectivity.txt
           g++ -std=c++17 -Wall -Wextra -Werror tests/motion_test.cpp -o /tmp/motion-test
           /tmp/motion-test | tee build/host-tests.txt
+          printf '%s\n' '${{ github.sha }}' >build/source-commit.txt
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
@@ -48,5 +53,37 @@ jobs:
           path: |
             hardware/
             build/
-            tools/build_hardware.py
+            tools/
+            docs/
+            firmware/motion.hpp
+            firmware/pico_dryrun.cpp
+            firmware/CMakeLists.txt
+            firmware/LICENSE
+            tests/
+            README.md
+            LICENSE-HARDWARE
+            LICENSES/
           retention-days: 7
+  publish:
+    needs: inspect
+    if: github.event_name == 'push' && github.repository == 'kkybby/rail-transient-inspector' && github.ref == 'refs/heads/hardware/dual-actuator-controller-r0'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: limit4-engineering-output
+          path: .
+      - name: Publish generated hardware and reviewed-source fixes without changing main
+        run: |
+          rm -f build/install.log
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- hardware build LICENSES tools/build_hardware.py tools/check_connectivity.py
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Publish LIMIT4 native CAD and actual check records [skip ci]'
+          git push origin HEAD:hardware/dual-actuator-controller-r0
