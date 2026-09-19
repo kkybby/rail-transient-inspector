@@ -21,7 +21,7 @@ jobs:
           mkdir -p build
           sudo add-apt-repository --yes ppa:kicad/kicad-10.0-releases >build/install.log 2>&1
           sudo apt-get update -qq >>build/install.log 2>&1
-          sudo apt-get install -y --no-install-recommends kicad python3-cairosvg poppler-utils >>build/install.log 2>&1
+          sudo apt-get install -y --no-install-recommends kicad python3-cairosvg python3-pil fonts-dejavu-core poppler-utils >>build/install.log 2>&1
           kicad-cli version | tee build/kicad-version.txt
       - name: Generate editable schematic and PCB, preserve full licence
         run: |
@@ -30,6 +30,7 @@ jobs:
           python3 tools/migrate_cad_generator.py
           /usr/bin/python3 tools/build_hardware.py
           python3 tools/layout_schematic.py
+          python3 tools/polish_symbols.py
       - name: Export native CAD and run actual electrical/design rules
         run: |
           kicad-cli sch export pdf -o build/limit4-schematic.pdf hardware/limit4.kicad_sch
@@ -46,6 +47,8 @@ jobs:
           g++ -std=c++17 -Wall -Wextra -Werror tests/motion_test.cpp -o /tmp/motion-test
           /tmp/motion-test | tee build/host-tests.txt
           printf '%s\n' '${{ github.sha }}' >build/source-commit.txt
+      - name: Build the visitor-facing portfolio cover
+        run: /usr/bin/python3 tools/build_showcase.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
@@ -53,6 +56,7 @@ jobs:
           path: |
             hardware/
             build/
+            showcase/
             tools/
             docs/
             firmware/motion.hpp
@@ -61,6 +65,7 @@ jobs:
             firmware/LICENSE
             tests/
             README.md
+            README.zh-CN.md
             LICENSE-HARDWARE
             LICENSES/
           retention-days: 7
@@ -78,12 +83,12 @@ jobs:
         with:
           name: limit4-engineering-output
           path: .
-      - name: Publish generated hardware and reviewed-source fixes without changing main
+      - name: Publish generated hardware and presentation assets without changing main
         run: |
           rm -f build/install.log
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- hardware build LICENSES tools/build_hardware.py tools/check_connectivity.py
+          git add -- hardware build showcase LICENSES tools/build_hardware.py tools/check_connectivity.py
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'Publish LIMIT4 native CAD and actual check records [skip ci]'
+          git commit -m 'Publish reviewed symbols and LIMIT4 presentation assets [skip ci]'
           git push origin HEAD:hardware/dual-actuator-controller-r0
