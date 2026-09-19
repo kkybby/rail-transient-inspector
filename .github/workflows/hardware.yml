@@ -1,34 +1,47 @@
-name: Hardware source inspection
+name: LIMIT4 CAD and firmware checks
 on:
   push:
     branches: ['hardware/dual-actuator-controller-r0']
+    paths: ['tools/**', 'firmware/**', 'tests/**', '.github/workflows/hardware.yml']
 permissions:
   contents: read
+concurrency:
+  group: limit4-engineering
+  cancel-in-progress: true
 jobs:
   inspect:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Fetch the pinned open hardware source for inspection
+      - name: Install KiCad and rendering dependencies
         run: |
-          python3 - <<'PY'
-          import urllib.request, pathlib, zipfile, io, hashlib, json
-          url='https://codeload.github.com/MilosRasic98/OpenDualMotorDriver/zip/9a938240a8053269b1b8786dccdb6d541cb7396c'
-          data=urllib.request.urlopen(url, timeout=45).read()
-          root=pathlib.Path('inspection'); root.mkdir()
-          (root/'upstream-source.zip').write_bytes(data)
-          z=zipfile.ZipFile(io.BytesIO(data))
-          wanted=['Hardware/ProPrj_Dual_Motor_Driver_2026-05-02.epro','Hardware/Schematics/1_PowerElectronics.PNG','Hardware/Schematics/2_MotorDriver.PNG','Hardware/Schematics/3_RP2350.PNG','LICENSE','LICENSE-HARDWARE']
-          for n in z.namelist():
-            if any(n.endswith('/'+p) for p in wanted):
-              out=root/pathlib.Path(n).name; out.write_bytes(z.read(n))
-          (root/'SHA256SUMS').write_text('\n'.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+p.name for p in root.iterdir() if p.is_file()))
-          PY
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends kicad python3-cairosvg
+          mkdir -p build
+          kicad-cli version | tee build/kicad-version.txt
+      - name: Generate native schematic and PCB
+        run: /usr/bin/python3 tools/build_hardware.py
+      - name: Open and export native CAD
+        run: |
+          kicad-cli sch export pdf -o build/limit4-schematic.pdf hardware/limit4.kicad_sch
+          kicad-cli sch export netlist --format kicadxml -o build/limit4.xml hardware/limit4.kicad_sch
+          kicad-cli sch erc --format json -o build/erc.json hardware/limit4.kicad_sch
+          kicad-cli pcb drc --format json -o build/drc.json hardware/limit4.kicad_pcb
+          kicad-cli pcb export svg --layers F.Cu,F.Silkscreen,Edge.Cuts --page-size-mode 2 -o build/pcb-top.svg hardware/limit4.kicad_pcb
+          /usr/bin/python3 -c "import cairosvg; cairosvg.svg2png(url='build/pcb-top.svg',write_to='build/pcb-top.png',output_width=1400)"
+      - name: Cross-check schematic, layout and logic
+        run: |
+          set -o pipefail
+          if test -f tools/check_connectivity.py; then /usr/bin/python3 tools/check_connectivity.py | tee build/connectivity.txt; fi
+          if test -f tests/motion_test.cpp; then g++ -std=c++17 -Wall -Wextra -Werror tests/motion_test.cpp -o /tmp/motion-test; /tmp/motion-test | tee build/host-tests.txt; fi
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
         with:
-          name: upstream-hardware-inspection
-          path: inspection/
-          retention-days: 3
+          name: limit4-engineering-output
+          path: |
+            hardware/
+            build/
+          retention-days: 7
