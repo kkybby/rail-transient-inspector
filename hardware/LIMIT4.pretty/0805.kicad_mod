@@ -6,7 +6,7 @@
 	(property "Reference" "R52"
 		(at 0 2 0)
 		(layer "F.SilkS")
-		(uuid "cd10c978-278e-4f3b-be66-d1fc05f1bc20")
+		(uuid "ddabe90b-21a7-405b-aba7-1ed4a1ba2e78")
 		(effects
 			(font
 				(size 0.85 0.85)
@@ -18,7 +18,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "8f17188f-74d2-403d-96bf-55c549004579")
+		(uuid "332158ba-0f13-4a15-bbeb-d00b9153e4f2")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -29,7 +29,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "9fd38598-18a4-4cb7-ad3c-85061a17f987")
+		(uuid "962eeda8-5c22-45b2-8ff5-9df73d16d8d4")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -40,7 +40,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "422bed40-8a8b-46da-819d-8efa0606de54")
+		(uuid "802eb090-38e7-4bb5-a4c2-eb31301036ed")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -57,7 +57,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "a5323790-d2e1-41cb-b1a1-1ee2c5650011")
+		(uuid "65cf6b7f-e01f-4d7a-be8a-fb32a4f0a4b6")
 	)
 	(fp_line
 		(start -1.9 1.1)
@@ -67,7 +67,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "1d32d806-76d5-434c-a075-a52870755faa")
+		(uuid "9685bd7c-aa1b-430f-aa77-fc8853ba8a1e")
 	)
 	(fp_line
 		(start 1.9 -1.6)
@@ -77,7 +77,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "33d83086-1e47-4712-9358-deb3240b4cc2")
+		(uuid "9b2de5aa-710b-443a-9365-4f760d13da4b")
 	)
 	(fp_line
 		(start 1.9 1.1)
@@ -87,21 +87,21 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "7ffac0c1-7190-42f8-833e-e0217aa2bd2c")
+		(uuid "3ce5368c-e0f1-46ef-8b70-698f1701d95f")
 	)
 	(pad "1" smd rect
 		(at -0.95 0)
 		(size 1.2 1.4)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(thermal_bridge_angle 45)
-		(uuid "7d061d80-68cf-4c62-af6f-3cad940292eb")
+		(uuid "8cf54519-f5db-4712-8519-f37bf7107742")
 	)
 	(pad "2" smd oval
 		(at 0.95 0)
 		(size 1.2 1.4)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(thermal_bridge_angle 45)
-		(uuid "4f53954b-16f8-46b2-abd1-e6fd0f06d20e")
+		(uuid "c8f93776-27c0-4e0d-9515-96c5d17b603a")
 	)
 	(embedded_fonts no)
 )

@@ -1,0 +1,7 @@
+{
+  "source": "build/pcb-top.png",
+  "source_sha256": "cd461d4d6a852cec858d8d6ee1e29e396c275e6c6e928a3db646d26b8d54fc3c",
+  "operation": "Resize and place the unchanged CAD export in a typographic layout",
+  "photo_or_render_claim": "CAD copper-layer export only; no assembled hardware depicted",
+  "content_status": "Unbuilt engineering prototype"
+}

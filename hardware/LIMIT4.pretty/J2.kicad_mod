@@ -6,7 +6,7 @@
 	(property "Reference" "J9"
 		(at 0 -2.8 0)
 		(layer "F.SilkS")
-		(uuid "117e1c7e-0247-4d2b-bc1f-d1c7993c55d6")
+		(uuid "d8baf4be-1989-4528-9a94-f158c9550ddf")
 		(effects
 			(font
 				(size 0.85 0.85)
@@ -18,7 +18,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "3ec2f4a7-a1fd-4bc4-b3cc-e44d29e43f55")
+		(uuid "f6feca11-9932-43f7-82c3-37b03d06e232")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -29,7 +29,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "9089c9ac-5b4b-484e-b392-bc56e66fa57c")
+		(uuid "a82c5714-d7bd-4f85-b1dd-d552cb606236")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -40,7 +40,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "67f51845-49ea-45bf-a76b-08384420787b")
+		(uuid "adf3449b-6943-442e-9dd6-09758c55aeec")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -57,7 +57,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "42b3b76c-e0dd-4693-95de-c3ac0fcc67b0")
+		(uuid "97087c07-925d-4773-908f-83236050ef11")
 	)
 	(fp_line
 		(start -1.3 6.3)
@@ -67,7 +67,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "45e094c8-1fb7-4dd6-aa69-232134ffea75")
+		(uuid "a357dc83-3145-4000-8493-1ea9bc9d55dd")
 	)
 	(fp_line
 		(start 1.3 -1.6)
@@ -77,7 +77,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "09f17ed8-877e-4e1c-8d95-54b3ebaf5a21")
+		(uuid "1bc87626-27e3-4679-a7da-cc152b11ac59")
 	)
 	(fp_line
 		(start 1.3 6.3)
@@ -87,7 +87,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "92b5cfd9-29f8-4ffa-8ae9-45466d2ab7a3")
+		(uuid "99ec1fa5-1943-4684-816d-977e160e6a0c")
 	)
 	(pad "1" thru_hole rect
 		(at 0 0)
@@ -96,7 +96,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 45)
-		(uuid "f7fd06ba-360c-4c4f-98fb-b06d73d9f144")
+		(uuid "a562dee5-c939-417d-a021-af1663658350")
 	)
 	(pad "2" thru_hole oval
 		(at 0 5)
@@ -105,7 +105,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 45)
-		(uuid "5ca5493e-b80d-4503-a72b-067d49a3c9c9")
+		(uuid "ca2325b7-9a49-446a-ab71-2c27f2859bf5")
 	)
 	(embedded_fonts no)
 )

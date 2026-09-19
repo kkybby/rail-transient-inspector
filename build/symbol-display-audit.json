@@ -1,0 +1,10 @@
+{
+  "hardware/RTI.kicad_sym": "Pin definitions, wires and net labels unchanged; display properties cleaned",
+  "hardware/limit4.kicad_sch": "Pin definitions, wires and net labels unchanged; display properties cleaned",
+  "unchanged_files_sha256": {
+    "hardware/limit4.kicad_pcb": "51d3945ad77237b230bc6390be11c4156ed84c393f489d78e5fd9ffb194a5e45",
+    "hardware/design.json": "716bf9f2a6a6051ceb046e85c7177d52d127e3dcbe546d9c6cd26f5ea2f46160",
+    "firmware/motion.hpp": "55030b86636fdf3dee1c0967e6c51485134456156737e9fc920640e28edd1051",
+    "firmware/pico_dryrun.cpp": "3aca18c4399589f2d5ac6a15a0edc865a1972f6a9ac7fe85bf9ceee55140d559"
+  }
+}
