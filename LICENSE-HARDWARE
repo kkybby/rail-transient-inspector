@@ -1,0 +1,18 @@
+Hardware, electrical manifest, hardware generator and hardware documentation:
+CERN Open Hardware Licence Version2 - Strongly Reciprocal (CERN-OHL-S-2.0).
+Copyright (c) 2026 kkybby and contributors, to the extent copyright applies.
+AI-assisted derivative interface design. Original OpenDualMotorDriver hardware:
+Copyright (c) 2026 Miloš Rašić, under its separate CERN-OHL-S-2.0 notice.
+
+Source location:
+https://github.com/kkybby/rail-transient-inspector/tree/hardware/dual-actuator-controller-r0
+Upstream source:
+https://github.com/MilosRasic98/OpenDualMotorDriver/tree/9a938240a8053269b1b8786dccdb6d541cb7396c
+
+You may redistribute and modify this hardware source and make products using it
+under CERN-OHL-S-2.0. Preserve attribution, source availability and notices as
+required by that licence. Distributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,
+INCLUDING MERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A PARTICULAR
+PURPOSE. Authoritative full licence: https://ohwr.org/licences/ .
+Independent new firmware/tests: MIT; see firmware/LICENSE. No original firmware
+is redistributed here. See docs/PROVENANCE.md for the upstream licence conflict.
