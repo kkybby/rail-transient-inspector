@@ -1,0 +1,13 @@
+# Real captures and operator reports are private by default.
+captures/
+reports/
+analysis.json
+analysis.html
+node_modules/
+__pycache__/
+.pytest_cache/
+.env
+.env.*
+*.log
+.DS_Store
+# Committed samples/ contains generated public examples only.

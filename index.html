@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="description" content="Offline oscilloscope CSV analysis for voltage dips, hysteresis-defined events and trigger timing. Transparent methods and synthetic validation.">
+<title>Rail Transient Inspector</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="src/style.css">
+<script src="vendor/papaparse.min.js" defer></script>
+<script src="src/core.js" defer></script>
+<script src="src/report.js" defer></script>
+<script src="src/app.js" defer></script>
+</head>
+<body>
+<header class="top"><a class="brand" href="index.html"><span class="mark">R<span>∿</span></span><span>RAIL LAB<span class="brand-sub">OPEN ENGINEERING TOOLS</span></span></a><div class="top-right"><span class="privacy">LOCAL FILES · NO UPLOADS</span><span class="version">v0.1.0</span></div></header>
+<main>
+<section class="hero"><div><p class="eyebrow">01 / POWER INTEGRITY EXPLORATION</p><h1>Rail Transient Inspector<span class="dot">.</span></h1><p class="subtitle">Turn a scope export into a traceable voltage-dip report.</p></div><button id="demo" class="button secondary">Load synthetic demo ↗</button></section>
+<div class="workspace">
+<aside class="panel controls">
+<form id="analysis-form" novalidate>
+<h2><span class="step">01</span> Import capture</h2>
+<label class="filebox" for="file"><strong>Choose a local CSV</strong><span>UTF-8 · 10 MiB · 200k samples max</span><input id="file" type="file" accept=".csv,.txt,.tsv,text/csv,text/plain"></label>
+<div class="two"><label>Preamble lines<input id="skip" type="number" min="0" max="1000" value="0"></label><label>Delimiter<select id="delimiter"><option value="">Auto</option><option value=",">Comma</option><option value=";">Semicolon</option><option value="tab">Tab</option><option value="|">Pipe</option></select></label></div>
+<label>Decimal separator<select id="decimal"><option value=".">Dot: 3.30</option><option value=",">Comma: 3,30</option></select></label>
+<button type="button" id="remap" class="text-button">Re-read header / columns ↻</button>
+<h2><span class="step">02</span> Map channels</h2>
+<div class="two"><label>Time column<select id="time-column"></select></label><label>Time unit<select id="time-unit"><option value="">Confirm unit</option><option value="s">s</option><option value="ms">ms</option><option value="us">µs</option><option value="ns">ns</option></select></label></div>
+<div class="two"><label>Rail column<select id="voltage-column"></select></label><label>Rail unit<select id="voltage-unit"><option value="">Confirm unit</option><option value="V">V</option><option value="mV">mV</option></select></label></div>
+<div class="two"><label>Trigger column<select id="trigger-column"><option value="">None</option></select></label><label>Trigger unit<select id="trigger-unit"><option value="">Confirm unit</option><option value="V">V</option><option value="mV">mV</option></select></label></div>
+<h2><span class="step">03</span> Analysis limits</h2>
+<div class="three"><label>Nominal / V<input id="nominal" type="number" step="any" value="3.3"></label><label>Trip / V<input id="trip" type="number" step="any" value="3.0"></label><label>Recover / V<input id="recover" type="number" step="any" value="3.08"></label></div>
+<div class="two"><label>Min event / µs<input id="min-duration" type="number" step="any" value="20" min="0"></label><label>Gap / × median Δt<input id="gap-factor" type="number" step="any" value="3" min="1.01"></label></div>
+<details><summary>Trigger &amp; capture notes</summary><div class="two"><label>Trigger level / V<input id="trigger-level" type="number" step="any" value="1.65"></label><label>Edge<select id="edge"><option value="rising">Rising</option><option value="falling">Falling</option></select></label></div><label>Preceding-trigger window / ms<input id="trigger-window" type="number" min="0" step="any" value="2"></label><label>Instrument / setup / source notes<textarea id="note" rows="3" placeholder="Capture provenance, probe setup, revision, test condition…"></textarea></label></details>
+<p class="small">Limits are your analysis settings. They do not represent a verified device's brownout threshold.</p>
+<button class="button primary" type="submit" id="analyze">Analyze capture <span>→</span></button>
+</form>
+</aside>
+<section class="results" aria-live="polite">
+<div id="message" role="status" class="message" hidden></div>
+<div id="origin" class="origin"><span class="badge">SYNTHETIC DEMO</span><span>Generated signal, not a bench measurement.</span></div>
+<div class="capture-line"><span id="source-name">synthetic-demo.csv</span><span id="sample-summary"></span></div>
+<div id="result-body">
+<div class="metrics"><article><p>CAPTURE MINIMUM</p><strong id="metric-min"></strong><span>All samples, including filtered events</span></article><article><p>DROP FROM NOMINAL</p><strong id="metric-drop"></strong><span>User-defined nominal reference</span></article><article><p>RETAINED EVENTS</p><strong id="metric-count"></strong><span id="metric-count-note"></span></article><article><p>LONGEST EVENT</p><strong id="metric-longest"></strong><span>Trip entry → recovery crossing</span></article></div>
+<div class="panel chart-panel"><div class="panel-heading"><div><p class="eyebrow">CAPTURE OVERVIEW</p><h2>Voltage &amp; event timing</h2></div><span class="legend">━━ Rail &nbsp; ┄ Trip &nbsp; ┈ Recovery</span></div><div id="chart"></div><div class="chart-foot"><span id="quality"></span><span>Markers: selected trigger edges</span></div></div>
+<div class="panel event-panel"><div class="panel-heading"><div><p class="eyebrow">OBSERVED, NOT INFERRED</p><h2>Event log</h2></div><span class="pill" id="complete-count"></span></div><div class="table-scroll" id="event-table"></div><p class="small table-note">Onset and recovery use linear interpolation. Trigger lag is temporal association, not proof of cause. Boundary events are incomplete.</p></div>
+<div class="bottom-grid"><div class="panel notes-panel"><h2>Quality &amp; interpretation</h2><ul id="warnings"></ul></div><div class="panel export-panel"><p class="eyebrow">KEEP THE EVIDENCE</p><h2>Export this analysis</h2><p>Settings, event log, input fingerprint and limitations travel with the report.</p><button id="html-report" class="button secondary">Save HTML report ↗</button><button id="json-report" class="button quiet">Save JSON results ↓</button><button id="sample-download" class="text-button">Download synthetic CSV</button></div></div>
+</div>
+<div class="panel empty" id="empty" hidden><h2>Ready when you are.</h2><p>Select the correct channels and units, then analyze. No measurements are sent to a server.</p></div>
+</section></div>
+<footer><div><strong>Small tool. Explicit evidence.</strong><p>AI-assisted software prototype. Synthetic tests completed; real-instrument validation pending.</p></div><div><a href="README.md">Project README</a><a href="docs/ALGORITHM.md">Method &amp; limitations</a><a href="THIRD_PARTY_NOTICES.md">Open-source attribution</a></div></footer>
+</main>
+<noscript>This local analysis tool needs JavaScript enabled.</noscript>
+</body></html>
