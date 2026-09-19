@@ -1,0 +1,832 @@
+{
+  "revision": "R0",
+  "status": "ENGINEERING_DRAFT_NOT_FOR_FABRICATION",
+  "components": [
+    {
+      "ref": "J1",
+      "kind": "J2",
+      "value": "A_MIN NC dry contact",
+      "nets": {
+        "1": "LOOP_A_MIN",
+        "2": "GND"
+      },
+      "sch": [
+        25.4,
+        50.8
+      ],
+      "pcb": [
+        108,
+        114
+      ],
+      "mpn": "",
+      "rot": 0,
+      "uuid": "2646541c-c9f7-58db-8510-d308d51eea4f"
+    },
+    {
+      "ref": "R11",
+      "kind": "R",
+      "value": "330R 1%",
+      "nets": {
+        "1": "LOOP_A_MIN",
+        "2": "FILT_A_MIN"
+      },
+      "sch": [
+        49.53,
+        50.8
+      ],
+      "pcb": [
+        118,
+        116
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "349f99fc-6c8c-51fe-9088-74ea08a599d9"
+    },
+    {
+      "ref": "R12",
+      "kind": "R",
+      "value": "4k7 1%",
+      "nets": {
+        "1": "FILT_A_MIN",
+        "2": "3V3"
+      },
+      "sch": [
+        80.01,
+        40.64
+      ],
+      "pcb": [
+        124,
+        111
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 90,
+      "uuid": "bf59a7d9-eede-5789-932f-7ebc1c06b037"
+    },
+    {
+      "ref": "C11",
+      "kind": "C",
+      "value": "10nF C0G 5%",
+      "nets": {
+        "1": "GND",
+        "2": "FILT_A_MIN"
+      },
+      "sch": [
+        80.01,
+        60.96
+      ],
+      "pcb": [
+        124,
+        120
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 90,
+      "uuid": "b34b09a6-ac7b-5dee-b14a-2def36a8ee5f"
+    },
+    {
+      "ref": "U1",
+      "kind": "G14",
+      "value": "SN74LVC1G14DBVR",
+      "nets": {
+        "1": null,
+        "2": "FILT_A_MIN",
+        "3": "GND",
+        "4": "BUF_A_MIN",
+        "5": "3V3"
+      },
+      "sch": [
+        105.41,
+        50.8
+      ],
+      "pcb": [
+        130,
+        116
+      ],
+      "mpn": "SN74LVC1G14DBVR",
+      "rot": 0,
+      "uuid": "03f2074d-9d61-5f85-8778-3d7c375ac200"
+    },
+    {
+      "ref": "C12",
+      "kind": "C",
+      "value": "100nF X7R 10%",
+      "nets": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "sch": [
+        110.49,
+        30.48
+      ],
+      "pcb": [
+        134,
+        113
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "44b1cc8c-1c8b-5cde-8b2b-2e0dada880a2"
+    },
+    {
+      "ref": "R13",
+      "kind": "R",
+      "value": "470R 1%",
+      "nets": {
+        "1": "BUF_A_MIN",
+        "2": "ALLOW_A_MIN"
+      },
+      "sch": [
+        128.27,
+        50.8
+      ],
+      "pcb": [
+        138,
+        116.95
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "df65cab7-f673-5273-82b1-39c98fc4124c"
+    },
+    {
+      "ref": "R14",
+      "kind": "R",
+      "value": "6k8 1%",
+      "nets": {
+        "1": "GND",
+        "2": "ALLOW_A_MIN"
+      },
+      "sch": [
+        148.59,
+        60.96
+      ],
+      "pcb": [
+        145,
+        120
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 90,
+      "uuid": "82922521-f0e2-5eaa-b7f1-33c22f567263"
+    },
+    {
+      "ref": "J5",
+      "kind": "J1",
+      "value": "ALLOW_A_MIN",
+      "nets": {
+        "1": "ALLOW_A_MIN"
+      },
+      "sch": [
+        179.07,
+        50.8
+      ],
+      "pcb": [
+        164,
+        116.95
+      ],
+      "mpn": "",
+      "rot": 0,
+      "uuid": "0c6f8666-c829-5883-b24e-9d6d55f4d820"
+    },
+    {
+      "ref": "J2",
+      "kind": "J2",
+      "value": "A_MAX NC dry contact",
+      "nets": {
+        "1": "LOOP_A_MAX",
+        "2": "GND"
+      },
+      "sch": [
+        25.4,
+        96.52
+      ],
+      "pcb": [
+        108,
+        126
+      ],
+      "mpn": "",
+      "rot": 0,
+      "uuid": "999afb1a-7c1c-596b-87d8-4dcb36bcf816"
+    },
+    {
+      "ref": "R21",
+      "kind": "R",
+      "value": "330R 1%",
+      "nets": {
+        "1": "LOOP_A_MAX",
+        "2": "FILT_A_MAX"
+      },
+      "sch": [
+        49.53,
+        96.52
+      ],
+      "pcb": [
+        118,
+        128
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "a1d02d34-a604-5411-ad25-087352f65c79"
+    },
+    {
+      "ref": "R22",
+      "kind": "R",
+      "value": "4k7 1%",
+      "nets": {
+        "1": "FILT_A_MAX",
+        "2": "3V3"
+      },
+      "sch": [
+        80.01,
+        86.36
+      ],
+      "pcb": [
+        124,
+        123
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 90,
+      "uuid": "3927ed45-cd72-5b4e-900d-c349e921753d"
+    },
+    {
+      "ref": "C21",
+      "kind": "C",
+      "value": "10nF C0G 5%",
+      "nets": {
+        "1": "GND",
+        "2": "FILT_A_MAX"
+      },
+      "sch": [
+        80.01,
+        106.68
+      ],
+      "pcb": [
+        124,
+        132
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 90,
+      "uuid": "db8d548f-f32a-5fd5-82fb-80edd882307e"
+    },
+    {
+      "ref": "U2",
+      "kind": "G14",
+      "value": "SN74LVC1G14DBVR",
+      "nets": {
+        "1": null,
+        "2": "FILT_A_MAX",
+        "3": "GND",
+        "4": "BUF_A_MAX",
+        "5": "3V3"
+      },
+      "sch": [
+        105.41,
+        96.52
+      ],
+      "pcb": [
+        130,
+        128
+      ],
+      "mpn": "SN74LVC1G14DBVR",
+      "rot": 0,
+      "uuid": "f234b8b5-a9e9-5520-a796-c6db42b5b652"
+    },
+    {
+      "ref": "C22",
+      "kind": "C",
+      "value": "100nF X7R 10%",
+      "nets": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "sch": [
+        110.49,
+        76.2
+      ],
+      "pcb": [
+        134,
+        125
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "f2c3b88c-8cb0-5658-a325-7bf7ef2804ae"
+    },
+    {
+      "ref": "R23",
+      "kind": "R",
+      "value": "470R 1%",
+      "nets": {
+        "1": "BUF_A_MAX",
+        "2": "ALLOW_A_MAX"
+      },
+      "sch": [
+        128.27,
+        96.52
+      ],
+      "pcb": [
+        138,
+        128.95
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "414f60c7-c213-5e3d-88a0-5efc32786e8f"
+    },
+    {
+      "ref": "R24",
+      "kind": "R",
+      "value": "6k8 1%",
+      "nets": {
+        "1": "GND",
+        "2": "ALLOW_A_MAX"
+      },
+      "sch": [
+        148.59,
+        106.68
+      ],
+      "pcb": [
+        145,
+        132
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 90,
+      "uuid": "29be8762-4387-5238-ba5b-b2b93e45b3db"
+    },
+    {
+      "ref": "J6",
+      "kind": "J1",
+      "value": "ALLOW_A_MAX",
+      "nets": {
+        "1": "ALLOW_A_MAX"
+      },
+      "sch": [
+        179.07,
+        96.52
+      ],
+      "pcb": [
+        164,
+        128.95
+      ],
+      "mpn": "",
+      "rot": 0,
+      "uuid": "00469d36-139c-547a-9419-bc80c08ec175"
+    },
+    {
+      "ref": "J3",
+      "kind": "J2",
+      "value": "B_MIN NC dry contact",
+      "nets": {
+        "1": "LOOP_B_MIN",
+        "2": "GND"
+      },
+      "sch": [
+        25.4,
+        142.24
+      ],
+      "pcb": [
+        108,
+        138
+      ],
+      "mpn": "",
+      "rot": 0,
+      "uuid": "8cfe5c5a-36d6-53bc-b7b6-b5005d942ea3"
+    },
+    {
+      "ref": "R31",
+      "kind": "R",
+      "value": "330R 1%",
+      "nets": {
+        "1": "LOOP_B_MIN",
+        "2": "FILT_B_MIN"
+      },
+      "sch": [
+        49.53,
+        142.24
+      ],
+      "pcb": [
+        118,
+        140
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "be7bd80f-d800-5662-b248-92a1e86c0cf9"
+    },
+    {
+      "ref": "R32",
+      "kind": "R",
+      "value": "4k7 1%",
+      "nets": {
+        "1": "FILT_B_MIN",
+        "2": "3V3"
+      },
+      "sch": [
+        80.01,
+        132.08
+      ],
+      "pcb": [
+        124,
+        135
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 90,
+      "uuid": "58dc9006-6382-5296-85ce-fef0cda0c9ec"
+    },
+    {
+      "ref": "C31",
+      "kind": "C",
+      "value": "10nF C0G 5%",
+      "nets": {
+        "1": "GND",
+        "2": "FILT_B_MIN"
+      },
+      "sch": [
+        80.01,
+        152.4
+      ],
+      "pcb": [
+        124,
+        144
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 90,
+      "uuid": "86957172-5384-55a3-afd9-5d79f9278891"
+    },
+    {
+      "ref": "U3",
+      "kind": "G14",
+      "value": "SN74LVC1G14DBVR",
+      "nets": {
+        "1": null,
+        "2": "FILT_B_MIN",
+        "3": "GND",
+        "4": "BUF_B_MIN",
+        "5": "3V3"
+      },
+      "sch": [
+        105.41,
+        142.24
+      ],
+      "pcb": [
+        130,
+        140
+      ],
+      "mpn": "SN74LVC1G14DBVR",
+      "rot": 0,
+      "uuid": "1dad37bf-9c43-512e-b3a6-fc5f29af1b88"
+    },
+    {
+      "ref": "C32",
+      "kind": "C",
+      "value": "100nF X7R 10%",
+      "nets": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "sch": [
+        110.49,
+        121.92
+      ],
+      "pcb": [
+        134,
+        137
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "66a63b97-419b-5f49-b15b-b3c1b63c0fe8"
+    },
+    {
+      "ref": "R33",
+      "kind": "R",
+      "value": "470R 1%",
+      "nets": {
+        "1": "BUF_B_MIN",
+        "2": "ALLOW_B_MIN"
+      },
+      "sch": [
+        128.27,
+        142.24
+      ],
+      "pcb": [
+        138,
+        140.95
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "ff3a17ee-1a40-599f-8f55-99df6907fc20"
+    },
+    {
+      "ref": "R34",
+      "kind": "R",
+      "value": "6k8 1%",
+      "nets": {
+        "1": "GND",
+        "2": "ALLOW_B_MIN"
+      },
+      "sch": [
+        148.59,
+        152.4
+      ],
+      "pcb": [
+        145,
+        144
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 90,
+      "uuid": "18c6a50a-f04b-511a-b4bf-4379a4b1bb71"
+    },
+    {
+      "ref": "J7",
+      "kind": "J1",
+      "value": "ALLOW_B_MIN",
+      "nets": {
+        "1": "ALLOW_B_MIN"
+      },
+      "sch": [
+        179.07,
+        142.24
+      ],
+      "pcb": [
+        164,
+        140.95
+      ],
+      "mpn": "",
+      "rot": 0,
+      "uuid": "c647886a-392b-555d-b8c8-482b4d6059a9"
+    },
+    {
+      "ref": "J4",
+      "kind": "J2",
+      "value": "B_MAX NC dry contact",
+      "nets": {
+        "1": "LOOP_B_MAX",
+        "2": "GND"
+      },
+      "sch": [
+        25.4,
+        187.96
+      ],
+      "pcb": [
+        108,
+        150
+      ],
+      "mpn": "",
+      "rot": 0,
+      "uuid": "6351e956-508d-5930-96c2-a34187af722c"
+    },
+    {
+      "ref": "R41",
+      "kind": "R",
+      "value": "330R 1%",
+      "nets": {
+        "1": "LOOP_B_MAX",
+        "2": "FILT_B_MAX"
+      },
+      "sch": [
+        49.53,
+        187.96
+      ],
+      "pcb": [
+        118,
+        152
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "e7a33540-42ee-5acd-a40b-976e33334d63"
+    },
+    {
+      "ref": "R42",
+      "kind": "R",
+      "value": "4k7 1%",
+      "nets": {
+        "1": "FILT_B_MAX",
+        "2": "3V3"
+      },
+      "sch": [
+        80.01,
+        177.8
+      ],
+      "pcb": [
+        124,
+        147
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 90,
+      "uuid": "1c10302c-63ea-540b-95d5-7a5e1e58d4d5"
+    },
+    {
+      "ref": "C41",
+      "kind": "C",
+      "value": "10nF C0G 5%",
+      "nets": {
+        "1": "GND",
+        "2": "FILT_B_MAX"
+      },
+      "sch": [
+        80.01,
+        198.12
+      ],
+      "pcb": [
+        124,
+        156
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 90,
+      "uuid": "4b37fbc1-6700-5bfb-a4a1-db75f0ecdab8"
+    },
+    {
+      "ref": "U4",
+      "kind": "G14",
+      "value": "SN74LVC1G14DBVR",
+      "nets": {
+        "1": null,
+        "2": "FILT_B_MAX",
+        "3": "GND",
+        "4": "BUF_B_MAX",
+        "5": "3V3"
+      },
+      "sch": [
+        105.41,
+        187.96
+      ],
+      "pcb": [
+        130,
+        152
+      ],
+      "mpn": "SN74LVC1G14DBVR",
+      "rot": 0,
+      "uuid": "cc63c843-c5a3-5e86-aa92-28e22c2ed1ac"
+    },
+    {
+      "ref": "C42",
+      "kind": "C",
+      "value": "100nF X7R 10%",
+      "nets": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "sch": [
+        110.49,
+        167.64000000000001
+      ],
+      "pcb": [
+        134,
+        149
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "9937e5de-e002-5b50-851d-4b8c06a158a1"
+    },
+    {
+      "ref": "R43",
+      "kind": "R",
+      "value": "470R 1%",
+      "nets": {
+        "1": "BUF_B_MAX",
+        "2": "ALLOW_B_MAX"
+      },
+      "sch": [
+        128.27,
+        187.96
+      ],
+      "pcb": [
+        138,
+        152.95
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "f321b705-d9b2-5f44-abd3-639dfb23d49b"
+    },
+    {
+      "ref": "R44",
+      "kind": "R",
+      "value": "6k8 1%",
+      "nets": {
+        "1": "GND",
+        "2": "ALLOW_B_MAX"
+      },
+      "sch": [
+        148.59,
+        198.12
+      ],
+      "pcb": [
+        145,
+        156
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 90,
+      "uuid": "54cefaba-ab35-5b3f-ad77-1dbde8ef5833"
+    },
+    {
+      "ref": "J8",
+      "kind": "J1",
+      "value": "ALLOW_B_MAX",
+      "nets": {
+        "1": "ALLOW_B_MAX"
+      },
+      "sch": [
+        179.07,
+        187.96
+      ],
+      "pcb": [
+        164,
+        152.95
+      ],
+      "mpn": "",
+      "rot": 0,
+      "uuid": "358647ab-78e2-5992-bb59-6a40dfa0ade5"
+    },
+    {
+      "ref": "J9",
+      "kind": "J2",
+      "value": "HOST 3V3 / GND",
+      "nets": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "sch": [
+        234.95000000000002,
+        38.1
+      ],
+      "pcb": [
+        145,
+        105
+      ],
+      "mpn": "",
+      "rot": 0,
+      "uuid": "8601d323-b098-577f-bace-3ba2059b69ac"
+    },
+    {
+      "ref": "J10",
+      "kind": "J1",
+      "value": "RESET_AB",
+      "nets": {
+        "1": "RESET_AB"
+      },
+      "sch": [
+        223.52,
+        95.25
+      ],
+      "pcb": [
+        140,
+        160
+      ],
+      "mpn": "",
+      "rot": 0,
+      "uuid": "b413ed19-dbfd-5c3c-b671-2438cca97fbc"
+    },
+    {
+      "ref": "R51",
+      "kind": "R",
+      "value": "2k2 1%",
+      "nets": {
+        "1": "RESET_AB",
+        "2": "GND"
+      },
+      "sch": [
+        246.38,
+        95.25
+      ],
+      "pcb": [
+        147,
+        160
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "2c74fee7-0321-54b7-b232-fd8897728ef0"
+    },
+    {
+      "ref": "J11",
+      "kind": "J1",
+      "value": "RESET_CD",
+      "nets": {
+        "1": "RESET_CD"
+      },
+      "sch": [
+        223.52,
+        123.19
+      ],
+      "pcb": [
+        155,
+        160
+      ],
+      "mpn": "",
+      "rot": 0,
+      "uuid": "a7bc5ed7-f8f7-5217-a83b-540e9b443ec5"
+    },
+    {
+      "ref": "R52",
+      "kind": "R",
+      "value": "2k2 1%",
+      "nets": {
+        "1": "RESET_CD",
+        "2": "GND"
+      },
+      "sch": [
+        246.38,
+        123.19
+      ],
+      "pcb": [
+        162,
+        160
+      ],
+      "mpn": "SPEC_ONLY_MPN_PENDING",
+      "rot": 0,
+      "uuid": "e40632fe-30c5-5a1c-b29b-b1965079ed66"
+    }
+  ]
+}

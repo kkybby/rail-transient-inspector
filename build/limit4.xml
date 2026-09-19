@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/home/runner/work/rail-transient-inspector/rail-transient-inspector/hardware/limit4.kicad_sch</source>
+    <date>2026-09-19T06:54:34</date>
+    <tool>Eeschema 10.0.6-10.0.6~ubuntu24.04.1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>LIMIT4 / dual-actuator extension</title>
+        <company>kkybby | AI-assisted hardware</company>
+        <rev>R0 DRAFT</rev>
+        <date>2026-09-19</date>
+        <source>limit4.kicad_sch</source>
+        <comment number="1" value="CERN-OHL-S-2.0 | no physical validation | not for fabrication"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C11">
+      <value>10nF C0G 5%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="C" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b34b09a6-ac7b-5dee-b14a-2def36a8ee5f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C12">
+      <value>100nF X7R 10%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="C" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>44b1cc8c-1c8b-5cde-8b2b-2e0dada880a2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C21">
+      <value>10nF C0G 5%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="C" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>db8d548f-f32a-5fd5-82fb-80edd882307e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C22">
+      <value>100nF X7R 10%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="C" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f2c3b88c-8cb0-5658-a325-7bf7ef2804ae</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C31">
+      <value>10nF C0G 5%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="C" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>86957172-5384-55a3-afd9-5d79f9278891</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C32">
+      <value>100nF X7R 10%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="C" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>66a63b97-419b-5f49-b15b-b3c1b63c0fe8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C41">
+      <value>10nF C0G 5%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="C" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4b37fbc1-6700-5bfb-a4a1-db75f0ecdab8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C42">
+      <value>100nF X7R 10%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="C" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9937e5de-e002-5b50-851d-4b8c06a158a1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J1">
+      <value>A_MIN NC dry contact</value>
+      <footprint>LIMIT4:J2</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:J2</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="J2" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2646541c-c9f7-58db-8510-d308d51eea4f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J2">
+      <value>A_MAX NC dry contact</value>
+      <footprint>LIMIT4:J2</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:J2</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="J2" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>999afb1a-7c1c-596b-87d8-4dcb36bcf816</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J3">
+      <value>B_MIN NC dry contact</value>
+      <footprint>LIMIT4:J2</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:J2</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="J2" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8cfe5c5a-36d6-53bc-b7b6-b5005d942ea3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J4">
+      <value>B_MAX NC dry contact</value>
+      <footprint>LIMIT4:J2</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:J2</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="J2" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6351e956-508d-5930-96c2-a34187af722c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J5">
+      <value>ALLOW_A_MIN</value>
+      <footprint>LIMIT4:J1</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:J1</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="J1" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0c6f8666-c829-5883-b24e-9d6d55f4d820</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J6">
+      <value>ALLOW_A_MAX</value>
+      <footprint>LIMIT4:J1</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:J1</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="J1" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00469d36-139c-547a-9419-bc80c08ec175</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J7">
+      <value>ALLOW_B_MIN</value>
+      <footprint>LIMIT4:J1</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:J1</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="J1" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c647886a-392b-555d-b8c8-482b4d6059a9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J8">
+      <value>ALLOW_B_MAX</value>
+      <footprint>LIMIT4:J1</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:J1</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="J1" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>358647ab-78e2-5992-bb59-6a40dfa0ade5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J9">
+      <value>HOST 3V3 / GND</value>
+      <footprint>LIMIT4:J2</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:J2</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="J2" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8601d323-b098-577f-bace-3ba2059b69ac</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J10">
+      <value>RESET_AB</value>
+      <footprint>LIMIT4:J1</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:J1</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="J1" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b413ed19-dbfd-5c3c-b671-2438cca97fbc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J11">
+      <value>RESET_CD</value>
+      <footprint>LIMIT4:J1</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:J1</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="J1" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a7bc5ed7-f8f7-5217-a83b-540e9b443ec6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R11">
+      <value>330R 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>349f99fc-6c8c-51fe-9088-74ea08a599d9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R12">
+      <value>4k7 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bf59a7d9-eede-5789-932f-7ebc1c06b037</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R13">
+      <value>470R 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>df65cab7-f673-5273-82b1-39c98fc4124c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R14">
+      <value>6k8 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>82922521-f0e2-5eaa-b7f1-33c22f567263</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R21">
+      <value>330R 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a1d02d34-a604-5411-ad25-087352f65c79</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R22">
+      <value>4k7 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3927ed45-cd72-5b4e-900d-c349e921753d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R23">
+      <value>470R 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>414f60c7-c213-5e3d-88a0-5efc32786e8f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R24">
+      <value>6k8 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>29be8762-4387-5238-ba5b-b2b93e45b3db</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R31">
+      <value>330R 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>be7bd80f-d800-5662-b248-92a1e86c0cf9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R32">
+      <value>4k7 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>58dc9006-6382-5296-85ce-fef0cda0c9ec</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R33">
+      <value>470R 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ff3a17ee-1a40-599f-8f55-99df6907fc20</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R34">
+      <value>6k8 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>18c6a50a-f04b-511a-b4bf-4379a4b1bb71</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R41">
+      <value>330R 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e7a33540-42ee-5acd-a40b-976e33334d63</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R42">
+      <value>4k7 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1c10302c-63ea-540b-95d5-7a5e1e58d4d5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R43">
+      <value>470R 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f321b705-d9b2-5f44-abd3-639dfb23d49b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R44">
+      <value>6k8 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>54cefaba-ab35-5b3f-ad77-1dbde8ef5833</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R51">
+      <value>2k2 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2c74fee7-0321-54b7-b232-fd8897728ef0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R52">
+      <value>2k2 1%</value>
+      <footprint>LIMIT4:0805</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:0805</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="R" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e40632fe-30c5-5a1c-b29b-b1965079ed66</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>SN74LVC1G14DBVR</value>
+      <footprint>LIMIT4:DBV5</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:DBV5</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="G14" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>03f2074d-9d61-5f85-8778-3d7c375ac200</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="5"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U2">
+      <value>SN74LVC1G14DBVR</value>
+      <footprint>LIMIT4:DBV5</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:DBV5</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="G14" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f234b8b5-a9e9-5520-a796-c6db42b5b652</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="5"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U3">
+      <value>SN74LVC1G14DBVR</value>
+      <footprint>LIMIT4:DBV5</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:DBV5</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="G14" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1dad37bf-9c43-512e-b3a6-fc5f29af1b88</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="5"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U4">
+      <value>SN74LVC1G14DBVR</value>
+      <footprint>LIMIT4:DBV5</footprint>
+      <fields>
+        <field name="Footprint">LIMIT4:DBV5</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="RTI" part="G14" description=""/>
+      <property name="Sheetname" value="limit4"/>
+      <property name="Sheetfile" value="limit4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cc63c843-c5a3-5e86-aa92-28e22c2ed1ac</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="5"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="RTI" part="C">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="RTI" part="G14">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">G14</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="NC" type="passive"/>
+        <pin num="2" name="A" type="input"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="Y" type="output"/>
+        <pin num="5" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="RTI" part="J1">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">J1</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="RTI" part="J2">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">J2</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="RTI" part="R">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="RTI">
+      <uri>${KIPRJMOD}/RTI.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/3V3" class="Default">
+      <node ref="C12" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C22" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C32" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C42" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="J9" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R12" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R22" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R32" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R42" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="VCC_5" pintype="power_in"/>
+      <node ref="U2" pin="5" pinfunction="VCC_5" pintype="power_in"/>
+      <node ref="U3" pin="5" pinfunction="VCC_5" pintype="power_in"/>
+      <node ref="U4" pin="5" pinfunction="VCC_5" pintype="power_in"/>
+    </net>
+    <net code="2" name="/ALLOW_A_MAX" class="Default">
+      <node ref="J6" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R23" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R24" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="3" name="/ALLOW_A_MIN" class="Default">
+      <node ref="J5" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R13" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R14" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="4" name="/ALLOW_B_MAX" class="Default">
+      <node ref="J8" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R43" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R44" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="5" name="/ALLOW_B_MIN" class="Default">
+      <node ref="J7" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R33" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R34" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="6" name="/BUF_A_MAX" class="Default">
+      <node ref="R23" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="4" pinfunction="Y_4" pintype="output"/>
+    </net>
+    <net code="7" name="/BUF_A_MIN" class="Default">
+      <node ref="R13" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="Y_4" pintype="output"/>
+    </net>
+    <net code="8" name="/BUF_B_MAX" class="Default">
+      <node ref="R43" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U4" pin="4" pinfunction="Y_4" pintype="output"/>
+    </net>
+    <net code="9" name="/BUF_B_MIN" class="Default">
+      <node ref="R33" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="4" pinfunction="Y_4" pintype="output"/>
+    </net>
+    <net code="10" name="/FILT_A_MAX" class="Default">
+      <node ref="C21" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R21" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R22" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="2" pinfunction="A_2" pintype="input"/>
+    </net>
+    <net code="11" name="/FILT_A_MIN" class="Default">
+      <node ref="C11" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R11" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R12" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="A_2" pintype="input"/>
+    </net>
+    <net code="12" name="/FILT_B_MAX" class="Default">
+      <node ref="C41" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R41" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R42" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U4" pin="2" pinfunction="A_2" pintype="input"/>
+    </net>
+    <net code="13" name="/FILT_B_MIN" class="Default">
+      <node ref="C31" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R31" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R32" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="2" pinfunction="A_2" pintype="input"/>
+    </net>
+    <net code="14" name="/GND" class="Default">
+      <node ref="C11" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C12" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C21" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C22" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C31" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C32" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C41" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C42" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="J2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="J3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="J4" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="J9" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R14" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R24" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R34" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R44" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R51" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R52" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U2" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U3" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U4" pin="3" pinfunction="GND_3" pintype="power_in"/>
+    </net>
+    <net code="15" name="/LOOP_A_MAX" class="Default">
+      <node ref="J2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R21" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="16" name="/LOOP_A_MIN" class="Default">
+      <node ref="J1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R11" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="17" name="/LOOP_B_MAX" class="Default">
+      <node ref="J4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R41" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="18" name="/LOOP_B_MIN" class="Default">
+      <node ref="J3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R31" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="19" name="/RESET_AB" class="Default">
+      <node ref="J10" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R51" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="20" name="/RESET_CD" class="Default">
+      <node ref="J11" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R52" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="21" name="unconnected-(U1-NC-Pad1)" class="Default">
+      <node ref="U1" pin="1" pinfunction="NC_1" pintype="passive+no_connect"/>
+    </net>
+    <net code="22" name="unconnected-(U2-NC-Pad1)" class="Default">
+      <node ref="U2" pin="1" pinfunction="NC_1" pintype="passive+no_connect"/>
+    </net>
+    <net code="23" name="unconnected-(U3-NC-Pad1)" class="Default">
+      <node ref="U3" pin="1" pinfunction="NC_1" pintype="passive+no_connect"/>
+    </net>
+    <net code="24" name="unconnected-(U4-NC-Pad1)" class="Default">
+      <node ref="U4" pin="1" pinfunction="NC_1" pintype="passive+no_connect"/>
+    </net>
+  </nets>
+</export>

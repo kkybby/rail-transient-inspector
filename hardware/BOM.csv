@@ -1,0 +1,42 @@
+Reference,Value,Candidate_MPN,Footprint,Qualification
+J1,A_MIN NC dry contact,,1mm solder-wire holes,Wire termination only; no mating connector claimed
+R11,330R 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+R12,4k7 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+C11,10nF C0G 5%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+U1,SN74LVC1G14DBVR,SN74LVC1G14DBVR,DBV-5,Exact TI IC checked; passive sourcing/assembly approval pending
+C12,100nF X7R 10%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+R13,470R 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+R14,6k8 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+J5,ALLOW_A_MIN,,1mm solder-wire holes,Wire termination only; no mating connector claimed
+J2,A_MAX NC dry contact,,1mm solder-wire holes,Wire termination only; no mating connector claimed
+R21,330R 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+R22,4k7 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+C21,10nF C0G 5%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+U2,SN74LVC1G14DBVR,SN74LVC1G14DBVR,DBV-5,Exact TI IC checked; passive sourcing/assembly approval pending
+C22,100nF X7R 10%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+R23,470R 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+R24,6k8 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+J6,ALLOW_A_MAX,,1mm solder-wire holes,Wire termination only; no mating connector claimed
+J3,B_MIN NC dry contact,,1mm solder-wire holes,Wire termination only; no mating connector claimed
+R31,330R 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+R32,4k7 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+C31,10nF C0G 5%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+U3,SN74LVC1G14DBVR,SN74LVC1G14DBVR,DBV-5,Exact TI IC checked; passive sourcing/assembly approval pending
+C32,100nF X7R 10%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+R33,470R 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+R34,6k8 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+J7,ALLOW_B_MIN,,1mm solder-wire holes,Wire termination only; no mating connector claimed
+J4,B_MAX NC dry contact,,1mm solder-wire holes,Wire termination only; no mating connector claimed
+R41,330R 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+R42,4k7 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+C41,10nF C0G 5%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+U4,SN74LVC1G14DBVR,SN74LVC1G14DBVR,DBV-5,Exact TI IC checked; passive sourcing/assembly approval pending
+C42,100nF X7R 10%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+R43,470R 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+R44,6k8 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+J8,ALLOW_B_MAX,,1mm solder-wire holes,Wire termination only; no mating connector claimed
+J9,HOST 3V3 / GND,,1mm solder-wire holes,Wire termination only; no mating connector claimed
+J10,RESET_AB,,1mm solder-wire holes,Wire termination only; no mating connector claimed
+R51,2k2 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending
+J11,RESET_CD,,1mm solder-wire holes,Wire termination only; no mating connector claimed
+R52,2k2 1%,SPEC_ONLY_MPN_PENDING,0805,Exact TI IC checked; passive sourcing/assembly approval pending

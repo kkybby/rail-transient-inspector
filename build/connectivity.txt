@@ -1,0 +1,3 @@
+84 populated pin/net assignments and 4 NC pads match schematic, PCB and manifest.
+drc.json errors= 0 warnings= 0 unconnected= 0
+erc.json errors= 0 warnings= 0 unconnected= 0

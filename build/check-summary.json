@@ -1,0 +1,19 @@
+{
+  "components": 41,
+  "connected_pin_assignments": 84,
+  "nc_pads": 4,
+  "hardware_tested": false,
+  "release": "ENGINEERING_DRAFT_NOT_FOR_FABRICATION",
+  "drc.json": {
+    "errors": 0,
+    "warnings": 0,
+    "unconnected_items": 0,
+    "kicad_version": "10.0.6"
+  },
+  "erc.json": {
+    "errors": 0,
+    "warnings": 0,
+    "unconnected_items": 0,
+    "kicad_version": "10.0.6"
+  }
+}

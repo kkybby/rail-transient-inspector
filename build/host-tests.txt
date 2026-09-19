@@ -1,0 +1,1 @@
+47 state-machine assertions passed; host logic only, no motor tests.

@@ -6,20 +6,25 @@ Run with KiCad's system Python / pcbnew module.
 from pathlib import Path
 import uuid, math, json, csv
 import pcbnew as p
+def layer_set(*layers):
+    result=p.LSET()
+    for layer in layers: result.AddLayer(layer)
+    return result
+
 ROOT=Path(__file__).resolve().parents[1]
 D=ROOT/'hardware'; D.mkdir(exist_ok=True)
 uid=lambda s:str(uuid.uuid5(uuid.NAMESPACE_URL,'https://github.com/kkybby/dual-actuator-r0/'+s))
 comps=[]
 def comp(ref,kind,value,nets,sch,pcb,mpn='',rot=0):
-    comps.append(dict(ref=ref,kind=kind,value=value,nets={str(k):v for k,v in nets.items()},sch=sch,pcb=pcb,mpn=mpn,rot=rot,uuid=uid(ref)))
+    comps.append(dict(ref=ref,kind=kind,value=value,nets={str(k):v for k,v in nets.items()},sch=tuple(round(t/1.27)*1.27 for t in sch),pcb=pcb,mpn=mpn,rot=rot,uuid=uid(ref)))
 for i,name in enumerate(['A_MIN','A_MAX','B_MIN','B_MAX']):
-    k=i+1; y=42+36*i; by=116+12*i
+    k=i+1; y=50.8+45.72*i; by=116+12*i
     comp(f'J{k}','J2',name+' NC dry contact',{1:f'LOOP_{name}',2:'GND'},(25,y),(108,by-2))
     comp(f'R{k}1','R','330R 1%',{1:f'LOOP_{name}',2:f'FILT_{name}'},(50,y),(118,by),'SPEC_ONLY_MPN_PENDING')
     comp(f'R{k}2','R','4k7 1%',{1:f'FILT_{name}',2:'3V3'},(80,y-10.16),(124,by-5),'SPEC_ONLY_MPN_PENDING',90)
     comp(f'C{k}1','C','10nF C0G 5%',{1:'GND',2:f'FILT_{name}'},(80,y+10.16),(124,by+4),'SPEC_ONLY_MPN_PENDING',90)
     comp(f'U{k}','G14','SN74LVC1G14DBVR',{1:None,2:f'FILT_{name}',3:'GND',4:f'BUF_{name}',5:'3V3'},(105,y),(130,by),'SN74LVC1G14DBVR')
-    comp(f'C{k}2','C','100nF X7R 10%',{1:'3V3',2:'GND'},(111,y-15.24),(134,by-3),'SPEC_ONLY_MPN_PENDING')
+    comp(f'C{k}2','C','100nF X7R 10%',{1:'3V3',2:'GND'},(111,y-20.32),(134,by-3),'SPEC_ONLY_MPN_PENDING')
     comp(f'R{k}3','R','470R 1%',{1:f'BUF_{name}',2:f'ALLOW_{name}'},(128,y),(138,by+.95),'SPEC_ONLY_MPN_PENDING')
     comp(f'R{k}4','R','6k8 1%',{1:'GND',2:f'ALLOW_{name}'},(148,y+10.16),(145,by+4),'SPEC_ONLY_MPN_PENDING',90)
     comp(f'J{k+4}','J1','ALLOW_'+name,{1:f'ALLOW_{name}'},(179,y),(164,by+.95))
@@ -46,6 +51,8 @@ for kind,pp in pins.items():
     if kind=='R': shape='(rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type none)))'
     elif kind=='C':
         for x in [-.7,.7]:shape+=f'(polyline (pts (xy {x} -2.54) (xy {x} 2.54)) (stroke (width 0.254) (type default)) (fill (type none)))'
+        # Complete capacitor leads
+        for a,b in [(-2.54,-.7),(.7,2.54)]:shape+=f'(polyline (pts (xy {a} 0) (xy {b} 0)) (stroke (width 0.254) (type default)) (fill (type none)))'
     elif kind=='G14':shape='(rectangle (start -5.08 5.08) (end 5.08 -5.08) (stroke (width 0.254) (type default)) (fill (type background))) (text "INV / ST" (at 0 1.27 0) (effects (font (size 1 1))))'
     elif kind=='J2':shape='(rectangle (start -2.54 2.54) (end 5.08 -7.62) (stroke (width 0.254) (type default)) (fill (type none)))'
     else:shape='(circle (center 0 1.27) (radius 1.27) (stroke (width 0.254) (type default)) (fill (type none)))'
@@ -59,17 +66,34 @@ root=uid('sheet')
 out=[f'(kicad_sch (version 20231120) (generator eeschema) (uuid "{root}") (paper "A3") (title_block (title "LIMIT4 / dual-actuator extension") (date "2026-09-19") (rev "R0 DRAFT") (company "kkybby | AI-assisted hardware") (comment 1 "CERN-OHL-S-2.0 | no physical validation | not for fabrication")) (lib_symbols '+''.join(lib)+')']
 def line(x1,y1,x2,y2):out.append(f'(wire (pts (xy {x1:.4f} {y1:.4f}) (xy {x2:.4f} {y2:.4f})) (stroke (width 0) (type default)) (uuid "{uid(str((x1,y1,x2,y2)))}"))')
 def label(n,x,y,a=0):out.append(f'(label {q(n)} (at {x:.4f} {y:.4f} {a}) (effects (font (size 1.0 1.0)) (justify left bottom)) (uuid "{uid("L"+n+str(x)+str(y))}"))')
-for c in comps+[dict(ref='#FLG01',kind='FLAG',value='POWER',nets={'1':'3V3'},sch=(218,45),pcb=None,rot=0,uuid=uid('flagv')),dict(ref='#FLG02',kind='FLAG',value='POWER',nets={'1':'GND'},sch=(218,53),pcb=None,rot=0,uuid=uid('flagg'))]:
+for c in comps+[dict(ref='#FLG01',kind='FLAG',value='3V3',nets={'1':'3V3'},sch=(218.44,45.72),pcb=None,rot=0,uuid=uid('flagv')),dict(ref='#FLG02',kind='FLAG',value='GND',nets={'1':'GND'},sch=(218.44,58.42),pcb=None,rot=0,uuid=uid('flagg'))]:
     x,y=c['sch'];a=c['rot'];kind=c['kind'];ref=c['ref'];fp='LIMIT4:'+('DBV5' if kind=='G14' else '0805' if kind in ['R','C'] else kind)
-    out.append(f'(symbol (lib_id "RTI:{kind}") (at {x} {y} {a}) (unit 1) (in_bom yes) (on_board {"no" if kind=="FLAG" else "yes"}) (dnp no) (uuid "{c["uuid"]}") (property "Reference" "{ref}" (at {x+2.5 if a else x} {y-4 if kind!="G14" else y-10.16} 0) (effects (font (size 1.1 1.1)))) (property "Value" {q(c["value"])} (at {x+3 if a else x} {y+4 if kind!="G14" else y+12} 0) (effects (font (size 1 1)))) (property "Footprint" {q(fp)} (at {x} {y} 0) (effects (font (size 1 1)) hide)) '+''.join(f'(pin "{no}" (uuid "{uid(ref+no)}"))' for no,*_ in pins[kind])+f'(instances (project "limit4" (path "/{root}" (reference "{ref}") (unit 1)))))')
+    out.append(f'(symbol (lib_id "RTI:{kind}") (at {x} {y} {a}) (unit 1) (in_bom yes) (on_board {"no" if kind=="FLAG" else "yes"}) (dnp no) (uuid "{c["uuid"]}") (property "Reference" "{ref}" (at {x+2.5 if a else x} {y-4 if kind!="G14" else y-10.16} 0) (effects (font (size 1.1 1.1)))) (property "Value" {q(c["value"])} (at {x+3 if a else x} {y+4 if kind!="G14" else y+16.51} 0) (effects (font (size 1 1)))) (property "Footprint" {q(fp)} (at {x} {y} 0) (effects (font (size 1 1)) hide)) '+''.join(f'(pin "{no}" (uuid "{uid(ref+no)}"))' for no,*_ in pins[kind])+f'(instances (project "limit4" (path "/{root}" (reference "{ref}") (unit 1)))))')
     for no,px,py,pa,typ in pins[kind]:
         theta=math.radians(a);xx=x+px*math.cos(theta)-py*math.sin(theta);yy=y-px*math.sin(theta)-py*math.cos(theta);n=c['nets'].get(no)
         if not n:out.append(f'(no_connect (at {xx:.4f} {yy:.4f}) (uuid "{uid(ref+no+"NC")}"))');continue
         t=math.radians(pa+a);ex=xx-3.81*math.cos(t);ey=yy+3.81*math.sin(t)
         line(xx,yy,ex,ey);label(n,ex,ey)
-for i,n in enumerate(['A_MIN','A_MAX','B_MIN','B_MAX']):out.append(f'(text "{n}: closed NC loop -> ALLOW high; open/broken -> low" (at 26 {24+36*i} 0) (effects (font (size 1.5 1.5)) (justify left)) (uuid "{uid(n+"note")}"))')
+# Channel trunk wiring
+lookup={c['ref']:c for c in comps}
+for k in range(1,5):
+    def pt(ref,pin):
+        c=lookup[ref]; x,y=c['sch']; a=math.radians(c['rot'])
+        _,px,py,_,_=next(z for z in pins[c['kind']] if z[0]==str(pin))
+        return (x+px*math.cos(a)-py*math.sin(a),y-px*math.sin(a)-py*math.cos(a))
+    a=pt(f'J{k}',1);z=pt(f'R{k}1',1);line(*a,*z)
+    a=pt(f'R{k}1',2);z=pt(f'U{k}',2);line(*a,*z)
+    for ref,pin in [(f'R{k}2',1),(f'C{k}1',2)]:
+        t=pt(ref,pin);line(*t,t[0],a[1])
+    a=pt(f'U{k}',4);z=pt(f'R{k}3',1);line(*a,*z)
+    a=pt(f'R{k}3',2);z=pt(f'J{k+4}',1);line(*a,*z)
+    t=pt(f'R{k}4',2);line(*t,t[0],a[1])
+for i,n in enumerate(['A_MIN','A_MAX','B_MIN','B_MAX']):out.append(f'(text "{n}: closed NC loop -> ALLOW high; open/broken -> low" (at 26 {25.4+45.72*i} 0) (effects (font (size 1.5 1.5)) (justify left)) (uuid "{uid(n+"note")}"))')
 for y,tx in [(149,'RESET pulls require soldered rework wires to existing driver nets.'),(156,'3V3 and GND must share the host rail. No independent supply.'),(163,'No 12/24V sensor signals. Dry contacts only.'),(170,'Loop opening is not proof of physical arrival.'),(177,'Limit handling is firmware-supervised, not a safety interlock.'),(184,'Motor power motherboard stays upstream/unmodified.')]:out.append(f'(text {q(tx)} (at 211 {y} 0) (effects (font (size 1.1 1.1)) (justify left)) (uuid "{uid(tx)}"))')
-out.append(')');(D/'limit4.kicad_sch').write_text('\n'.join(out))
+out.append(')');(D/'limit4.kicad_sch').write_text('\n'.join(out).replace('\"LIMIT4:FLAG\"','\"\"'))
+# Local symbol library
+(D/'RTI.kicad_sym').write_text('(kicad_symbol_lib (version 20231120) (generator kicad_symbol_editor) '+''.join(lib).replace('symbol \"RTI:','symbol \"')+')')
+(D/'sym-lib-table').write_text('(sym_lib_table (lib (name \"RTI\")(type \"KiCad\")(uri \"${KIPRJMOD}/RTI.kicad_sym\")(options \"\")(descr \"Local LIMIT4 symbols\")))')
 b=p.BOARD();nets={}
 for n in netnames:
     ni=p.NETINFO_ITEM(b,n);b.Add(ni);nets[n]=ni
@@ -81,6 +105,9 @@ for c in comps:
     fp=p.FOOTPRINT(b);kind=c['kind'];ref=c['ref'];x,y=c['pcb'];fname='DBV5' if kind=='G14' else '0805' if kind in ['R','C'] else kind
     fp.SetFPID(p.LIB_ID('LIMIT4',fname));fp.SetReference(ref);fp.SetValue(c['value']);fp.SetPath(p.KIID_PATH('/'+root+'/'+c['uuid']))
     fp.Reference().SetTextSize(v(.85,.85));fp.Reference().SetTextThickness(mm(.13));fp.Reference().SetPosition(v(0,-2.8));fp.Value().SetVisible(False)
+    # Keep silk clear of the preceding channel's capacitors.
+    if ref in ['R12','R22','R32','R42']:fp.Reference().SetPosition(v(-3.5,0))
+    if ref in ['R51','R52']:fp.Reference().SetPosition(v(0,2.0))
     if kind=='G14':pos=[('1',-1.3,-.95),('2',-1.3,0),('3',-1.3,.95),('4',1.3,.95),('5',1.3,-.95)];sx,sy=1.1,.6;drill=0;cx,cy=2.1,1.6
     elif kind in ['R','C']:pos=[('1',-.95,0),('2',.95,0)];sx,sy=1.2,1.4;drill=0;cx,cy=1.9,1.1
     elif kind=='J2':pos=[('1',0,0),('2',0,5)];sx=sy=2;drill=1;cx,cy=1.3,6.3
@@ -88,14 +115,14 @@ for c in comps:
     fp.SetAttributes(p.FP_THROUGH_HOLE if drill else p.FP_SMD)
     for no,xx,yy in pos:
         z=p.PAD(fp);z.SetNumber(no);z.SetShape(p.PAD_SHAPE_RECT if no=='1' else p.PAD_SHAPE_OVAL);z.SetSize(v(sx,sy));z.SetPosition(v(xx,yy));z.SetAttribute(p.PAD_ATTRIB_PTH if drill else p.PAD_ATTRIB_SMD)
-        z.SetLayerSet(p.LSET.AllCuMask() if drill else p.LSET(p.F_Cu,p.F_Paste,p.F_Mask))
-        if drill:z.SetDrillSize(v(drill,drill));z.SetLayerSet(p.LSET(p.F_Cu,p.B_Cu,p.F_Mask,p.B_Mask))
+        z.SetLayerSet(p.LSET.AllCuMask() if drill else layer_set(p.F_Cu,p.F_Paste,p.F_Mask))
+        if drill:z.SetDrillSize(v(drill,drill));z.SetLayerSet(layer_set(p.F_Cu,p.B_Cu,p.F_Mask,p.B_Mask))
         if c['nets'][no]:z.SetNet(nets[c['nets'][no]])
         fp.Add(z);pads[(ref,no)]=(x+xx,y+yy)
     for x1,y1,x2,y2 in [(-cx,-1.6,cx,-1.6),(cx,-1.6,cx,cy),(cx,cy,-cx,cy),(-cx,cy,-cx,-1.6)]:shape_line(fp,x1,y1,x2,y2,p.F_CrtYd,.05)
     if kind=='G14':
         for x1,y1,x2,y2 in [(-.8,-1.45,.8,-1.45),(.8,-1.45,.8,1.45),(.8,1.45,-.8,1.45),(-.8,1.45,-.8,-1.45)]:shape_line(fp,x1,y1,x2,y2,p.F_Fab,.1)
-    p.FootprintSave(str(libpath),fp);fp.SetPosition(v(x,y));b.Add(fp)
+    p.PCB_IO_KICAD_SEXPR().FootprintSave(str(libpath),fp);fp.SetPosition(v(x,y));b.Add(fp)
 def track(n,points,layer=p.F_Cu,width=.25):
     for a,z in zip(points,points[1:]):
         if a==z:continue
@@ -126,7 +153,7 @@ for layer,n in [(p.F_Cu,'3V3'),(p.B_Cu,'GND')]:
     b.Add(z)
 for x,y,t,size in [(121,105,'LIMIT4 R0',1.5),(126,164.5,'DRAFT - NO MOTOR POWER',1),(155,103,'3V3 ONLY',.9),(150,111,'GND',.85)]+[(162,113+12*i,n,.9) for i,n in enumerate(['A-MIN','A-MAX','B-MIN','B-MAX'])]:
     s=p.PCB_TEXT(b);s.SetText(t);s.SetPosition(v(x,y));s.SetTextSize(v(size,size));s.SetTextThickness(mm(.15));s.SetLayer(p.F_SilkS);b.Add(s)
-p.ZONE_FILLER(b).Fill(b.Zones());p.SaveBoard(str(D/'limit4.kicad_pcb'),b)
+p.ZONE_FILLER(b).Fill(b.Zones());p.PCB_IO_KICAD_SEXPR().SaveBoard(str(D/'limit4.kicad_pcb'),b)
 (D/'fp-lib-table').write_text('(fp_lib_table (lib (name "LIMIT4")(type "KiCad")(uri "${KIPRJMOD}/LIMIT4.pretty")(options "")(descr "Project-local prototype footprints")))\n')
 (D/'limit4.kicad_pro').write_text(json.dumps({'meta':{'filename':'limit4.kicad_pro','version':1},'board':{'design_settings':{'rules':{'min_clearance':.2,'min_track_width':.2,'min_via_diameter':.6,'min_through_hole_diameter':.3,'min_hole_clearance':.25,'min_copper_edge_clearance':.3}}}},indent=2))
 with (D/'BOM.csv').open('w') as f:
