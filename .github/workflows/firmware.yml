@@ -1,0 +1,52 @@
+name: Pico 2 dry-run compile
+on:
+  push:
+    branches: ['hardware/dual-actuator-controller-r0']
+    paths: ['firmware/**', 'tests/**', '.github/workflows/firmware.yml']
+permissions:
+  contents: read
+jobs:
+  compile:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: raspberrypi/pico-sdk
+          ref: a1438dff1d38bd9c65dbd693f0e5db4b9ae91779
+          path: sdk
+          submodules: recursive
+          persist-credentials: false
+      - name: Install Arm build toolchain
+        run: |
+          mkdir -p build
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib ninja-build >build/arm-install.log 2>&1
+          arm-none-eabi-g++ --version >build/arm-version.txt
+      - name: Host state-machine assertions
+        run: |
+          set -o pipefail
+          g++ -std=c++17 -Wall -Wextra -Werror tests/motion_test.cpp -o /tmp/motion-test
+          /tmp/motion-test | tee build/host-tests.txt
+      - name: Compile real Pico 2 target with physical outputs disabled
+        env:
+          PICO_SDK_PATH: ${{ github.workspace }}/sdk
+        run: |
+          set -o pipefail
+          cmake -S firmware -B firmware/build -G Ninja -DPICO_BOARD=pico2 -DPICO_NO_PICOTOOL=1 2>&1 | tee build/pico-configure.log
+          cmake --build firmware/build 2>&1 | tee build/pico-build.log
+          arm-none-eabi-size firmware/build/dual_actuator_dryrun.elf | tee build/pico-size.txt
+          printf 'Pico SDK commit a1438dff1d38bd9c65dbd693f0e5db4b9ae91779\nBoard pico2\nPhysical motor outputs compile-disabled\nNo flashing or hardware test performed\n' >build/firmware-validation.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: pico-dryrun-build
+          path: |
+            build/
+            firmware/build/dual_actuator_dryrun.elf
+            firmware/build/dual_actuator_dryrun.bin
+            firmware/build/dual_actuator_dryrun.hex
+          retention-days: 7
