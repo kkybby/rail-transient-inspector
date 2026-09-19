@@ -1,18 +1,39 @@
-# Validation / release gates
+# Validation record and remaining release gates
 
-Engineering draft; no physical assembly, powered motor or measurements.
+## Actually executed, 2026-09-19
 
-Executable host tests: `g++ -std=c++17 -Wall -Wextra -Werror tests/motion_test.cpp -o /tmp/test && /tmp/test`. Actual assertion count is printed and stored in build/host-tests.txt. KiCad version, ERC/DRC and schematic/PCB/manifest comparison are in build/. A green workflow only proves the steps ran; inspect the rule findings separately. Pico dry-run compilation is tracked independently; no flash or hardware run is claimed.
+| Check | Actual result |
+|---|---|
+| KiCad version | 10.0.6 |
+| Native schematic/PCB | Generated and opened by KiCad CLI; PDF/SVG exports produced |
+| ERC | 0 errors, 0 warnings |
+| DRC | 0 errors, 0 warnings, 0 unconnected items |
+| Manifest/schematic/PCB mapping | 41 components, 84 connected pin assignments, 4 NC pads checked |
+| Independent host controller | 47 assertions passed using g++ C++17, -Wall -Wextra -Werror |
+| Pico 2 cross-compilation | Success, pinned official Pico SDK 2.2.0 |
+| Resulting ELF size | text 35168 bytes, data 0 bytes, BSS 3792 bytes |
+| Assembly, flashing, motor tests | Not performed |
 
-R0 deliberately supplies no fabrication Gerber package. Editable CAD is for independent review and iteration; a generated file is not an assembly release. Remaining gates:
+CAD source commit: `394ce1f6ac9a20584c89738f3ebd1a408357ee30`.
+[CAD CI and generated-file publication](https://github.com/kkybby/rail-transient-inspector/actions/runs/35427853316).
+Actual reports: [check summary](../build/check-summary.json), [connectivity](../build/connectivity.txt), [ERC](../build/erc.json), [DRC](../build/drc.json), [host assertions](../build/host-tests.txt).
 
-1. Confirm physical Pico2 stepping, host PCB/epro/schematic correspondence and host supply/USB connections.
-2. Select and verify exact passive MPNs, footprint/body/voltage/tolerance/temperature/leakage and capacitor effective value. Qualify actual micro-switch at sub-mA wetting current.
-3. Without motors, verify all loop states, unplugged wires and host harness, GPIO input modes and output voltages across intended supply range. Inspect raw signal and ALLOW waveforms.
-4. Characterize response, startup pulse, bounce and noise; stop latency must be based on mechanics, not just an RC calculation.
-5. Test MCU reset, watchdog, incorrect command direction, limit-at-start, both loopsopen, fault, communication expiry and no-restart behavior. LIMIT_OPEN must never masquerade as physical arrival.
-6. Measure external reset-pull behavior with host reset/off and driveron. Driver powered-input leakage does not guarantee every independent power state.
-7. Audit upstream power/current-sense mapping, choose motor/currentlimit/fuse/braking/guards, then implement a real-drive backend only after review.
-8. Controlled low-energy bench work with independent power cutoff and recorded stop distance. No personnel protection, human-trapping locks, lifting, vehicles or unguarded use.
+Firmware source commit: `59efa8e02bd895e27b4777502ecefca23f3a303f`.
+[Actual Pico 2 compile run](https://github.com/kkybby/rail-transient-inspector/actions/runs/35427472611).
+Pico SDK commit: `a1438dff1d38bd9c65dbd693f0e5db4b9ae91779`.
+Board target: `pico2`, `PICO_NO_PICOTOOL=1`; ELF/bin/hex compiled, no UF2 creation claimed. Firmware source has not changed after this successful run. The separate compile artifact contains logs and binaries; no flashing or hardware result follows from compilation.
 
-Command acceptance, GPIO state and physical arrival remain separate. Software tests prove none of the physical performance claims.
+Read [QUALIFICATION.md](QUALIFICATION.md) with the circuit estimates. No rule errors have been waived to manufacture a passing status. However, a passing automated check cannot establish physical correctness, appropriate component choice or safety.
+
+## Physical release gates, still open
+
+1. Confirm actual Pico 2 stepping and host PCB/epro/schematic correspondence, supply and USB connections.
+2. Qualify full passive MPNs, footprint/body dimensions, voltage/tolerance/temperature/leakage and effective capacitance. Select the actual micro-switch for sub-mA wetting current.
+3. With no motors connected, verify all loop states, unplugged wires, host harness, input modes and levels over the intended supply range. Record raw-input and ALLOW waveforms.
+4. Characterize startup pulses, switch bounce and interference. Stop latency and stop distance must include mechanics and scheduling, not only an RC calculation.
+5. Check reset, watchdog, invalid/reversed commands, limit-at-start, both loops open, driver fault, communication expiry and no automatic restart. A loop opening must not be labelled physical arrival without independent evidence.
+6. Verify actual external reset-pull wiring and bias with each power state. Powered-input leakage does not cover all independent-off states.
+7. Audit the upstream supply and current-channel mapping. Lock motor voltage/stall current/inertia, current limit, fuse, braking and guarding before implementing a real-drive backend.
+8. Only then perform controlled low-energy motor testing with an independent cutoff and recorded results.
+
+No fabrication Gerber package is issued in R0. Editable CAD is for review and iteration. No personnel-protection, human-trapping lock, lifting, vehicle or unguarded application is qualified. Firmware deliberately keeps physical outputs disabled.
