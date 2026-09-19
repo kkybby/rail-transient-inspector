@@ -1,7 +1,0 @@
-demo count 2
-errors []
-requests []
-BROWSER CHECKS PASSED
-Temporary screenshots/reports: assets
-external []
-console errors []

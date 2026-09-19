@@ -1,0 +1,34 @@
+name: Hardware source inspection
+on:
+  push:
+    branches: ['hardware/dual-actuator-controller-r0']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Fetch the pinned open hardware source for inspection
+        run: |
+          python3 - <<'PY'
+          import urllib.request, pathlib, zipfile, io, hashlib, json
+          url='https://codeload.github.com/MilosRasic98/OpenDualMotorDriver/zip/9a938240a8053269b1b8786dccdb6d541cb7396c'
+          data=urllib.request.urlopen(url, timeout=45).read()
+          root=pathlib.Path('inspection'); root.mkdir()
+          (root/'upstream-source.zip').write_bytes(data)
+          z=zipfile.ZipFile(io.BytesIO(data))
+          wanted=['Hardware/ProPrj_Dual_Motor_Driver_2026-05-02.epro','Hardware/Schematics/1_PowerElectronics.PNG','Hardware/Schematics/2_MotorDriver.PNG','Hardware/Schematics/3_RP2350.PNG','LICENSE','LICENSE-HARDWARE']
+          for n in z.namelist():
+            if any(n.endswith('/'+p) for p in wanted):
+              out=root/pathlib.Path(n).name; out.write_bytes(z.read(n))
+          (root/'SHA256SUMS').write_text('\n'.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+p.name for p in root.iterdir() if p.is_file()))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: upstream-hardware-inspection
+          path: inspection/
+          retention-days: 3
